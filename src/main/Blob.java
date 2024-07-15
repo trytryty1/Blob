@@ -23,6 +23,7 @@ public class Blob {
 			this.pullDistance = pullDistance;
 			this.pushDistance = pushDistance;
 		}
+		
 		BlobType() {
 			this.color = Color.GREEN;
 			this.pullForce = 1;
@@ -43,7 +44,7 @@ public class Blob {
 	ConnectionSystem connectionsys;
 
 	public Blob() {
-		connectionsys = new ConnectionSystem(3);
+		connectionsys = new ConnectionSystem(4);
 		genBlob(2);
 		
 		leader = segments[0];
@@ -71,7 +72,7 @@ public class Blob {
 	}
 
 	public void update() {
-		float force = 3 * (connectionsys.connections.get(leader).connectionCount * 5 + 1);
+		float force = 2 * (connectionsys.connections.get(leader).connectionCount * 5 + 1);
 		if (Input.LEFT) {
 			leader.kinematic.applyForce(-force, 0);
 		}
